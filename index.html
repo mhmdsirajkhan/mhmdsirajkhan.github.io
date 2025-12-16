@@ -29,7 +29,7 @@
             font-family: 'Inter', sans-serif; 
             margin: 0;
             padding: 0;
-            background-color: transparent; /* Must be transparent for full-page Vanta.js */
+            background-color: transparent;
             color: var(--light);
             overflow-x: hidden;
         }
@@ -44,13 +44,13 @@
 
         /* --- Full Page Dynamic Background --- */
         #vanta-bg {
-            position: fixed; /* Fixed to cover the entire page */
+            position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
             z-index: -1;
-            background-color: var(--dark); /* Fallback */
+            background-color: var(--dark);
         }
 
         /* --- 2. NAVIGATION (Glassmorphism & Button Style) --- */
@@ -59,7 +59,6 @@
             justify-content: space-between;
             align-items: center;
             padding: 15px 10%; 
-            /* Glassmorphism Effect */
             background: var(--glass-bg); 
             backdrop-filter: blur(10px); 
             -webkit-backdrop-filter: blur(10px);
@@ -78,17 +77,16 @@
             margin: 0 5px; 
         }
         .nav-links a { 
-            /* Button Styling */
             padding: 8px 15px;
             border-radius: 20px;
             font-weight: 600;
             transition: all 0.3s;
-            background: rgba(255, 255, 255, 0.05); /* Subtly frosted button base */
+            background: rgba(255, 255, 255, 0.05);
             border: 1px solid transparent;
         }
         .nav-links a:hover { 
             color: var(--light); 
-            background: rgba(0, 210, 255, 0.2); /* Primary color glow */
+            background: rgba(0, 210, 255, 0.2);
             border: 1px solid var(--primary);
             box-shadow: 0 0 15px rgba(0, 210, 255, 0.5);
         }
@@ -142,7 +140,24 @@
             gap: 50px;
             flex-wrap: wrap;
         }
-        .about-text { flex: 1; line-height: 1.8; font-size: 1.1rem; color: var(--text-gray); }
+        
+        /* New Frame/Card for About Text */
+        .about-frame-card {
+            flex: 1; 
+            /* Glassmorphism Styling */
+            background: rgba(0, 0, 0, 0.2); /* Darker background for text contrast */
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+            border-radius: 10px;
+            border: 1px solid var(--glass-border);
+            padding: 30px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+        }
+        .about-text {
+            line-height: 1.8; 
+            font-size: 1.1rem; 
+            color: var(--light); /* Text is light inside the dark frame */
+        }
 
         /* PHOTO STYLING */
         .about-photo-container {
@@ -179,7 +194,7 @@
         }
         /* END PHOTO STYLING */
         
-        /* Glass Cards for Projects/Certifications */
+        /* Glass Cards for Projects/Certifications (unchanged) */
         .project-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -187,7 +202,6 @@
         }
 
         .card {
-            /* Glassmorphism Card Styling */
             background: var(--glass-bg);
             backdrop-filter: blur(8px);
             -webkit-backdrop-filter: blur(8px);
@@ -201,7 +215,7 @@
 
         .card:hover {
             transform: translateY(-10px) scale(1.02);
-            background: rgba(255, 255, 255, 0.15); /* Brighter glass on hover */
+            background: rgba(255, 255, 255, 0.15);
             border-color: var(--primary);
             box-shadow: 0 15px 35px rgba(0, 210, 255, 0.2);
         }
@@ -218,7 +232,7 @@
         }
         .social-icons a {
             font-size: 2rem;
-            color: var(--light); /* Changed to light for better contrast on glass background */
+            color: var(--light);
             transition: all 0.3s;
         }
         .social-icons a:hover { color: var(--primary); transform: scale(1.3); }
@@ -276,20 +290,22 @@
                 <div class="photo-caption">B.Ed (Hons) Student at SBBU SBA</div>
             </div>
 
-            <div class="about-text" data-aos="fade-right">
-                <h3>Academic & Professional Development</h3>
-                <p>
-                    I am a highly motivated <strong>B.Ed (Hons) student at SBBU SBA</strong> (expected completion Dec 2026), committed to continuous self-learning and growth. My academic foundation in <strong>English Literature</strong> has instilled strong analytical and communication skills, which I apply to my technical pursuits.
-                </p>
-                <p>
-                    My passion lies in bridging education with technology. I actively develop <strong>Data Science (Python)</strong> and Machine Learning skills through multiple internationally recognized certifications (Google, IBM, Microsoft). I aim to apply these analytical skills in roles that offer responsibility and growth.
-                </p>
-                <p>
-                    To gain practical exposure, I successfully completed internships at <strong>ArchTech</strong> and am currently engaged in a Data Science internship (Dec - Jan 10). Furthermore, my experience in leadership (e.g., <strong>ISSB for Pakistan Navy Cadet</strong>) has refined my discipline, teamwork, and problem-solving abilities.
-                </p>
-                <p>
-                    <strong>Goal:</strong> To build a strong professional career by combining my educational background, technical expertise, and practical experience to contribute meaningfully to my field and society.
-                </p>
+            <div class="about-frame-card" data-aos="fade-right">
+                <div class="about-text">
+                    <h3>Academic & Professional Development</h3>
+                    <p>
+                        I am a highly motivated <strong>B.Ed (Hons) student at SBBU SBA</strong> (expected completion Dec 2026), committed to continuous self-learning and growth. My academic foundation in <strong>English Literature</strong> has instilled strong analytical and communication skills, which I apply to my technical pursuits.
+                    </p>
+                    <p>
+                        My passion lies in bridging education with technology. I actively develop <strong>Data Science (Python)</strong> and Machine Learning skills through multiple internationally recognized certifications (Google, IBM, Microsoft). I aim to apply these analytical skills in roles that offer responsibility and growth.
+                    </p>
+                    <p>
+                        To gain practical exposure, I successfully completed internships at <strong>ArchTech</strong> and am currently engaged in a Data Science internship (Dec - Jan 10). Furthermore, my experience in leadership (e.g., <strong>ISSB for Pakistan Navy Cadet</strong>) has refined my discipline, teamwork, and problem-solving abilities.
+                    </p>
+                    <p>
+                        <strong>Goal:</strong> To build a strong professional career by combining my educational background, technical expertise, and practical experience to contribute meaningfully to my field and society.
+                    </p>
+                </div>
             </div>
         </div>
     </section>
@@ -413,7 +429,7 @@
     <script>
         // Initialize Animations
         AOS.init({
-            duration: 900, // Slightly faster entry
+            duration: 900,
             once: true,
         });
 
@@ -426,11 +442,11 @@
           minWidth: 200.00,
           scale: 1.00,
           scaleMobile: 1.00,
-          color: 0x223344, 
-          shininess: 15.00,
-          waveHeight: 10.00,
-          waveSpeed: 0.50,
-          zoom: 0.85
+          color: 0x4a90e2, // Brighter color for background
+          shininess: 30.00, // Increased shininess for glossy effect
+          waveHeight: 15.00, // Higher waves for more movement
+          waveSpeed: 0.70, // Slightly faster movement
+          zoom: 0.95 // Zoomed out slightly
         })
 
 
@@ -442,8 +458,8 @@
                 'Event Organizer.', 
                 'Researcher.'
             ],
-            typeSpeed: 90, // Slightly faster typing
-            backSpeed: 50, // Slightly faster backspacing
+            typeSpeed: 90,
+            backSpeed: 50,
             loop: true
         });
     </script>
