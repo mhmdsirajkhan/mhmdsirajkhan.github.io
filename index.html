@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Animated Portfolio</title>
+    <title>Siraj Khan - Portfolio</title>
     
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     
@@ -25,7 +25,7 @@
             padding: 0;
             background-color: var(--dark);
             color: var(--light);
-            overflow-x: hidden; /* Prevents side scroll bars */
+            overflow-x: hidden;
         }
 
         a { text-decoration: none; color: inherit; transition: 0.3s; }
@@ -51,7 +51,7 @@
         .nav-links li { display: inline-block; margin: 0 15px; }
         .nav-links a:hover { color: var(--primary); text-shadow: 0 0 10px var(--primary); }
 
-        /* --- 3. HERO SECTION (Animated Background) --- */
+        /* --- 3. HERO SECTION --- */
         .hero {
             height: 100vh;
             display: flex;
@@ -63,7 +63,6 @@
             position: relative;
         }
 
-        /* The glowing circle behind text */
         .hero::before {
             content: '';
             position: absolute;
@@ -96,7 +95,7 @@
         }
         .btn:hover { transform: translateY(-3px); box-shadow: 0 0 30px rgba(0, 210, 255, 0.6); }
 
-        /* --- 4. SECTIONS (About & Projects) --- */
+        /* --- 4. SECTIONS --- */
         section { padding: 80px 10%; }
         
         .section-title {
@@ -161,10 +160,9 @@
             font-size: 0.9rem;
         }
 
-        /* Mobile Responsive */
         @media (max-width: 768px) {
             .hero h1 { font-size: 2.5rem; }
-            .nav-links { display: none; } /* Simplified for mobile */
+            .nav-links { display: none; }
             nav { justify-content: center; }
         }
     </style>
@@ -172,7 +170,7 @@
 <body>
 
     <nav>
-        <div class="logo">PORTFOLIO.</div>
+        <div class="logo">SIRAJ KHAN.</div>
         <ul class="nav-links">
             <li><a href="#home">Home</a></li>
             <li><a href="#about">About</a></li>
@@ -182,11 +180,11 @@
     </nav>
 
     <section id="home" class="hero">
-        <h1 data-aos="fade-down" data-aos-duration="1000">Hi, I'm <span style="color:var(--primary)">[Your Name]</span></h1>
+        <h1 data-aos="fade-down" data-aos-duration="1000">Hi, I'm <span style="color:var(--primary)">Siraj Khan</span></h1>
         
         <h2>I am a <span class="typing-text"></span></h2>
         
-        <p data-aos="fade-up" data-aos-delay="200">Passionate about Data Science, Research, and Building Digital Products.</p>
+        <p data-aos="fade-up" data-aos-delay="200">Blending Education with Data Science & Technology.</p>
         <a href="#projects" class="btn" data-aos="zoom-in" data-aos-delay="400">View My Work</a>
     </section>
 
@@ -195,13 +193,16 @@
         <div class="about-content">
             <div class="about-text" data-aos="fade-right">
                 <p>
-                    I am a motivated student and developer based in [Your City/Country]. 
-                    I specialize in solving complex problems using technology. 
-                    Whether it's organizing large-scale events or analyzing data to find trends, 
-                    I love turning ideas into reality.
+                    I am a <strong>B.Ed (Hons) student at SBBU SBA</strong> with a unique background in English Literature. 
+                    I am passionate about bridging the gap between education and technology.
                 </p>
                 <p>
-                    I am currently looking for opportunities to apply my skills in real-world projects.
+                    Currently, I am focused on <strong>Data Science (Python)</strong> and educational research. 
+                    I have experience building predictive models, developing with Flutter, and organizing 
+                    large-scale campus events like PUBG Mobile tournaments.
+                </p>
+                <p>
+                    My goal is to pursue a Master's abroad in 2027, applying technical skills to solve real-world educational challenges.
                 </p>
             </div>
         </div>
@@ -212,24 +213,24 @@
         <div class="project-grid">
             
             <div class="card" data-aos="flip-left" data-aos-delay="100">
-                <i class="fa-solid fa-code" style="font-size:2rem; color:var(--primary); margin-bottom:10px;"></i>
-                <h3>Project Title 1</h3>
-                <span class="card-tech">Python | Data Science</span>
-                <p>A brief description of this project. Example: Analyzed a dataset of 5,000 entries to predict market trends with 95% accuracy.</p>
+                <i class="fa-solid fa-chart-line" style="font-size:2rem; color:var(--primary); margin-bottom:10px;"></i>
+                <h3>Sales & Price Prediction</h3>
+                <span class="card-tech">Python | Machine Learning</span>
+                <p>Developed ML models to predict car prices and advertising sales trends. Analyzed complex datasets to achieve high prediction accuracy.</p>
             </div>
 
             <div class="card" data-aos="flip-left" data-aos-delay="200">
-                <i class="fa-solid fa-mobile-screen" style="font-size:2rem; color:var(--primary); margin-bottom:10px;"></i>
-                <h3>Project Title 2</h3>
-                <span class="card-tech">Flutter | App Development</span>
-                <p>A mobile application designed to help users track their daily tasks efficiently.</p>
+                <i class="fa-solid fa-trophy" style="font-size:2rem; color:var(--primary); margin-bottom:10px;"></i>
+                <h3>PUBG Campus Club</h3>
+                <span class="card-tech">Leadership | Event Organizing</span>
+                <p>Organized and managed the PUBG Mobile Campus Club tournament at SBBU SBA, handling promotion, player data, and logistics.</p>
             </div>
 
             <div class="card" data-aos="flip-left" data-aos-delay="300">
-                <i class="fa-solid fa-gamepad" style="font-size:2rem; color:var(--primary); margin-bottom:10px;"></i>
-                <h3>Event Management</h3>
-                <span class="card-tech">Leadership | Organization</span>
-                <p>Organized a major campus tournament with over 100 participants, managing logistics and promotion.</p>
+                <i class="fa-solid fa-code" style="font-size:2rem; color:var(--primary); margin-bottom:10px;"></i>
+                <h3>SpaceX & Titanic Data</h3>
+                <span class="card-tech">Data Science | APIs</span>
+                <p>Worked with the SpaceX API and Titanic datasets to classify survival rates and analyze mission success data using Python.</p>
             </div>
 
         </div>
@@ -238,33 +239,38 @@
     <section id="contact">
         <h2 class="section-title" data-aos="zoom-in">Get In <span>Touch</span></h2>
         <div style="text-align: center;" data-aos="fade-up">
-            <p style="font-size: 1.2rem;">Have a project in mind? Let's talk!</p>
+            <p style="font-size: 1.2rem;">Based in Nawabshah, Pakistan. Open to collaboration.</p>
             <div class="social-icons">
-                <a href="#"><i class="fab fa-github"></i></a>
-                <a href="#"><i class="fab fa-linkedin"></i></a>
-                <a href="#"><i class="fas fa-envelope"></i></a>
+                <a href="https://github.com/your-username"><i class="fab fa-github"></i></a>
+                <a href="https://linkedin.com/in/your-profile"><i class="fab fa-linkedin"></i></a>
+                <a href="mailto:your-email@gmail.com"><i class="fas fa-envelope"></i></a>
             </div>
-            <a href="mailto:your.email@example.com" class="btn">Say Hello</a>
+            <a href="mailto:your-email@gmail.com" class="btn">Contact Me</a>
         </div>
     </section>
 
     <footer>
-        <p>&copy; 2025 [Your Name]. Built with code.</p>
+        <p>&copy; 2025 Siraj Khan. Built with code.</p>
     </footer>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
     
     <script>
-        // Initialize Animations (AOS)
+        // Initialize Animations
         AOS.init({
-            duration: 1000, // Animation lasts 1 second
-            once: true, // Animation happens only once
+            duration: 1000,
+            once: true,
         });
 
-        // Initialize Typewriter Effect
+        // PERSONALIZED TYPEWRITER EFFECT
         var typed = new Typed('.typing-text', {
-            strings: ['Data Scientist.', 'App Developer.', 'Researcher.', 'Student.'],
+            strings: [
+                'Data Science Enthusiast.', 
+                'B.Ed (Hons) Student.', 
+                'Event Organizer.', 
+                'Researcher.'
+            ],
             typeSpeed: 100,
             backSpeed: 60,
             loop: true
