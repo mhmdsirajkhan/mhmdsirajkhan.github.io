@@ -18,13 +18,13 @@
         :root {
             --primary: #00d2ff;
             --secondary: #3a7bd5;
-            --dark: #050a1a; /* Deep space background */
+            --dark: #050a1a;
             --light: #f8fafc;
             --text-gray: #94a3b8;
-            --glass-bg: rgba(255, 255, 255, 0.08); /* Frosted Glass Look */
+            --glass-bg: rgba(255, 255, 255, 0.08); 
             --glass-border: rgba(255, 255, 255, 0.15);
-            --floating-shadow: 0 10px 40px rgba(0, 0, 0, 0.6); /* Shadow for 3D float */
-            --floating-card-shadow: 0 5px 15px rgba(0, 210, 255, 0.2); /* Subtle glow for cards */
+            --floating-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
+            --floating-card-shadow: 0 5px 15px rgba(0, 210, 255, 0.2);
         }
 
         body {
@@ -70,7 +70,7 @@
             top: 0;
             z-index: 1000;
             border-radius: 0 0 10px 10px;
-            box-shadow: var(--floating-shadow); /* Floating effect */
+            box-shadow: var(--floating-shadow);
         }
 
         .logo { font-size: 1.5rem; font-weight: 900; color: var(--primary); }
@@ -158,7 +158,7 @@
             border-radius: 10px;
             border: 1px solid var(--glass-border);
             padding: 30px;
-            box-shadow: var(--floating-card-shadow); /* Glows against the background */
+            box-shadow: var(--floating-card-shadow);
         }
         .about-text {
             line-height: 1.8; 
@@ -170,10 +170,10 @@
         .about-photo-container {
             flex-shrink: 0;
             width: 300px;
-            height: 400px; /* <--- FIXED HEIGHT ADDED HERE TO PREVENT CROPPING */
+            height: 400px; /* FIXED HEIGHT FOR FULL IMAGE DISPLAY */
             border-radius: 10px;
             overflow: hidden;
-            box-shadow: 0 0 30px rgba(0, 210, 255, 0.5); /* Blue glow around photo */
+            box-shadow: 0 0 30px rgba(0, 210, 255, 0.5);
             position: relative;
             transition: box-shadow 0.3s;
         }
@@ -182,8 +182,8 @@
         }
         .profile-photo {
             width: 100%;
-            height: 100%; /* <--- HEIGHT SET TO 100% OF CONTAINER */
-            object-fit: cover; /* <--- ENSURES IMAGE FILLS THE BOX WITHOUT STRETCHING */
+            height: 100%; 
+            object-fit: cover; /* ENSURES IMAGE FILLS THE BOX WITHOUT STRETCHING */
             display: block;
             transition: transform 0.3s;
         }
@@ -205,18 +205,83 @@
             transition: all 0.4s ease-in-out;
             position: relative;
             overflow: hidden;
-            box-shadow: var(--floating-card-shadow); /* subtle glow */
+            box-shadow: var(--floating-card-shadow);
         }
 
         .card:hover {
             transform: translateY(-10px) scale(1.02);
             background: rgba(255, 255, 255, 0.15);
             border-color: var(--primary);
-            box-shadow: 0 15px 35px rgba(0, 210, 255, 0.4); /* Stronger hover shadow */
+            box-shadow: 0 15px 35px rgba(0, 210, 255, 0.4);
         }
 
         .card h3 { color: var(--primary); margin-top: 0; }
         .card-tech { font-size: 0.9rem; color: var(--light); margin-bottom: 15px; display: block; }
+
+        /* --- CONTACT MODAL STYLING (NEW) --- */
+        .contact-modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7); /* Dark semi-transparent overlay */
+            display: none; /* Hidden by default */
+            align-items: center;
+            justify-content: center;
+            z-index: 2000; /* Above everything */
+            opacity: 0;
+            transition: opacity 0.3s ease-out;
+        }
+
+        .contact-modal-card {
+            background: rgba(255, 255, 255, 0.15); /* Bright glass card */
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border: 1px solid var(--primary);
+            border-radius: 20px;
+            padding: 40px;
+            text-align: center;
+            max-width: 400px;
+            transform: scale(0.8); /* Starts small */
+            transition: all 0.3s ease-out;
+            box-shadow: 0 10px 50px rgba(0, 210, 255, 0.5);
+            position: relative;
+        }
+
+        .contact-modal-overlay.active {
+            display: flex;
+            opacity: 1;
+        }
+
+        .contact-modal-overlay.active .contact-modal-card {
+            transform: scale(1); /* Zooms to full size */
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--light);
+            transition: color 0.2s;
+        }
+        .close-btn:hover {
+            color: red;
+        }
+        
+        .modal-detail {
+            display: block;
+            margin: 15px 0;
+            font-size: 1.1rem;
+            color: var(--light);
+            font-family: 'Montserrat', sans-serif;
+        }
+        .modal-icon {
+            color: var(--primary);
+            margin-right: 10px;
+        }
 
         /* --- 5. CONTACT & FOOTER --- */
         .social-icons {
@@ -257,6 +322,32 @@
 <body>
 
     <div id="vanta-bg"></div>
+
+    <div id="contact-modal" class="contact-modal-overlay">
+        <div class="contact-modal-card">
+            <span class="close-btn" onclick="closeModal()">
+                <i class="fas fa-times"></i>
+            </span>
+            <h3>Connect with Siraj</h3>
+            <p>I'm always open to discussing new projects, internships, or collaborations.</p>
+
+            <span class="modal-detail">
+                <i class="modal-icon fas fa-envelope"></i>
+                <a href="mailto:mohammadsiraj.original@gmail.com">mohammadsiraj.original@gmail.com</a>
+            </span>
+            
+            <span class="modal-detail">
+                <i class="modal-icon fab fa-linkedin"></i>
+                <a href="https://www.linkedin.com/in/siraj-khan-90b8a9262/" target="_blank">LinkedIn Profile</a>
+            </span>
+            
+            <span class="modal-detail">
+                <i class="modal-icon fab fa-github"></i>
+                <a href="https://github.com/mhmdsirajkhan/" target="_blank">GitHub Repositories</a>
+            </span>
+        </div>
+    </div>
+
 
     <nav>
         <div class="logo">SIRAJ KHAN.</div>
@@ -404,13 +495,13 @@
     <section id="contact">
         <h2 class="section-title" data-aos="zoom-in">Get In <span>Touch</span></h2>
         <div style="text-align: center;" data-aos="fade-up">
-            <p style="font-size: 1.2rem;">Based in Nawabshah, Pakistan. Open to collaboration and opportunities.</p>
+            <p style="font-size: 1.2rem;">Open to collaboration and opportunities.</p> 
             <div class="social-icons">
                 <a href="https://github.com/mhmdsirajkhan/" target="_blank" title="GitHub Profile"><i class="fab fa-github"></i></a>
                 <a href="https://www.linkedin.com/in/siraj-khan-90b8a9262/" target="_blank" title="LinkedIn Profile"><i class="fab fa-linkedin"></i></a>
                 <a href="mailto:mohammadsiraj.original@gmail.com" title="Send Email"><i class="fas fa-envelope"></i></a>
             </div>
-            <a href="mailto:mohammadsiraj.original@gmail.com" class="btn">Contact Me Directly</a>
+            <button class="btn" onclick="openModal()" style="border: none; cursor: pointer;">Contact Me Directly</button> 
         </div>
     </section>
 
@@ -440,9 +531,9 @@
           minWidth: 200.00,
           scale: 1.00,
           scaleMobile: 1.00,
-          color: 0x4a90e2, // Blue/Purple for deep space
-          backgroundColor: 0x050a1a, // Very dark background
-          points: 15.00, // Number of "stars" or nodes
+          color: 0x4a90e2, 
+          backgroundColor: 0x050a1a, 
+          points: 15.00, 
           maxDistance: 25.00,
           spacing: 15.00,
           showCircles: false 
@@ -461,6 +552,23 @@
             backSpeed: 50,
             loop: true
         });
+
+
+        // --- NEW JAVASCRIPT FOR MODAL ANIMATION ---
+        function openModal() {
+            document.getElementById('contact-modal').classList.add('active');
+        }
+
+        function closeModal() {
+            document.getElementById('contact-modal').classList.remove('active');
+        }
+        // Closes modal if user clicks outside the card
+        document.getElementById('contact-modal').addEventListener('click', function(event) {
+            if (event.target.id === 'contact-modal') {
+                closeModal();
+            }
+        });
+        // --- END NEW JAVASCRIPT ---
     </script>
 
 </body>
