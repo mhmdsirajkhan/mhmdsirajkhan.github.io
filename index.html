@@ -113,7 +113,7 @@
         }
         .about-text { flex: 1; line-height: 1.8; font-size: 1.1rem; color: var(--text-gray); }
 
-        /* NEW PHOTO STYLING */
+        /* PHOTO STYLING */
         .about-photo-container {
             flex-shrink: 0;
             width: 300px;
@@ -142,7 +142,7 @@
             padding: 10px 0;
             font-size: 0.9rem;
         }
-        /* END NEW PHOTO STYLING */
+        /* END PHOTO STYLING */
         
         /* Glass Cards for Projects */
         .project-grid {
@@ -208,6 +208,7 @@
             <li><a href="#home">Home</a></li>
             <li><a href="#about">About</a></li>
             <li><a href="#projects">Projects</a></li>
+            <li><a href="#certifications">Skills</a></li>
             <li><a href="#contact">Contact</a></li>
         </ul>
     </nav>
@@ -217,12 +218,12 @@
         
         <h2>I am a <span class="typing-text"></span></h2>
         
-        <p data-aos="fade-up" data-aos-delay="200">Blending Education with Data Science & Technology.</p>
+        <p data-aos="fade-up" data-aos-delay="200">A dedicated student blending Education with Data Science & Technology.</p>
         <a href="#projects" class="btn" data-aos="zoom-in" data-aos-delay="400">View My Work</a>
     </section>
 
     <section id="about">
-        <h2 class="section-title" data-aos="fade-up">About <span>Me</span></h2>
+        <h2 class="section-title" data-aos="fade-up">My <span>Journey</span></h2>
         
         <div class="about-content">
             <div class="about-photo-container" data-aos="zoom-in" data-aos-delay="50">
@@ -231,70 +232,126 @@
             </div>
 
             <div class="about-text" data-aos="fade-right">
-                <h3>My Background</h3>
+                <h3>Academic & Professional Development</h3>
                 <p>
-                    I am a <strong>B.Ed (Hons) student at SBBU SBA</strong> with a strong foundation in **English Literature**. 
-                    I am deeply passionate about bridging the gap between education and technology, striving to use 
-                    technical skills to solve real-world educational challenges.
+                    I am a highly motivated **B.Ed (Hons) student at SBBU SBA** (expected completion Dec 2026), committed to continuous self-learning and growth. My academic foundation in **English Literature** has instilled strong analytical and communication skills, which I apply to my technical pursuits.
                 </p>
                 <p>
-                    My technical focus is on **Data Science (Python)**, Machine Learning, and Flutter development. 
-                    I have hands-on experience in building predictive models and organizing large-scale campus events.
+                    My passion lies in bridging education with technology. I actively develop **Data Science (Python)** and Machine Learning skills through multiple internationally recognized certifications (Google, IBM, Microsoft). I aim to apply these analytical skills in roles that offer responsibility and growth.
                 </p>
                 <p>
-                    I am targeting a Master's degree abroad in 2027 and am currently seeking opportunities for technical collaboration.
+                    To gain practical exposure, I successfully completed internships at **ArchTech** and am currently engaged in a Data Science internship (Dec - Jan 10). Furthermore, my experience in leadership (e.g., **ISSB for Pakistan Navy Cadet**) has refined my discipline, teamwork, and problem-solving abilities.
+                </p>
+                <p>
+                    **Goal:** To build a strong professional career by combining my educational background, technical expertise, and practical experience to contribute meaningfully to my field and society, with an aspiration to pursue a Master's degree abroad in 2027.
                 </p>
             </div>
         </div>
     </section>
 
     <section id="projects">
-        <h2 class="section-title" data-aos="fade-up">My <span>Projects</span></h2>
+        <h2 class="section-title" data-aos="fade-up">Top <span>Projects</span></h2>
         <div class="project-grid">
             
             <div class="card" data-aos="flip-left" data-aos-delay="100">
                 <i class="fa-solid fa-car" style="font-size:2rem; color:var(--primary); margin-bottom:10px;"></i>
-                <h3>Car Sales & Price Prediction</h3>
-                <span class="card-tech">Python | Scikit-learn | Data Analysis</span>
-                <p>
-                    Developed a regression model to predict the resale price and sales trends of used cars. Focused on feature engineering and model tuning to achieve high predictive accuracy.
-                </p>
-                <a href="#" class="btn" style="padding: 5px 10px; font-size: 0.9rem;">View Repository</a>
+                <h3>Cars Price Prediction</h3>
+                <span class="card-tech">Python | Machine Learning | Regression</span>
+                <p>Developed a regression model using Scikit-learn to predict the resale price of used cars, focusing on feature engineering and achieving high accuracy. (Updated 3 days ago)</p>
+                <a href="https://github.com/mhmdsirajkhan/Cars-price-prediction-with-machine-Learning" class="btn" style="padding: 5px 10px; font-size: 0.9rem;">View Code</a>
             </div>
 
             <div class="card" data-aos="flip-left" data-aos-delay="200">
-                <i class="fa-solid fa-rocket" style="font-size:2rem; color:var(--primary); margin-bottom:10px;"></i>
-                <h3>SpaceX & Titanic Explorations</h3>
-                <span class="card-tech">Python | Pandas | API Interaction</span>
-                <p>
-                    Executed advanced data manipulation and classification tasks using the Titanic and SpaceX datasets. Focused on API handling and survival rate prediction using logistic regression.
-                </p>
-                <a href="#" class="btn" style="padding: 5px 10px; font-size: 0.9rem;">View Notebook</a>
+                <i class="fa-solid fa-phone-slash" style="font-size:2rem; color:var(--primary); margin-bottom:10px;"></i>
+                <h3>Telecom Churn Prediction</h3>
+                <span class="card-tech">Python | Scikit-learn | Classification</span>
+                <p>An analysis of telecom customer data to identify key drivers of churn and build a predictive model for customer retention strategy.</p>
+                <a href="https://github.com/mhmdsirajkhan/telecom-churn-prediction" class="btn" style="padding: 5px 10px; font-size: 0.9rem;">View Code</a>
             </div>
 
             <div class="card" data-aos="flip-left" data-aos-delay="300">
-                <i class="fa-solid fa-users" style="font-size:2rem; color:var(--primary); margin-bottom:10px;"></i>
-                <h3>Campus Tournament Organization</h3>
-                <span class="card-tech">Event Management | Leadership | Logistics</span>
-                <p>
-                    Planned, promoted, and executed the PUBG Mobile Campus Club tournament at SBBU SBA. Managed player registration data, tournament brackets, and prize distribution for a large participant base.
-                </p>
-                <a href="#" class="btn" style="padding: 5px 10px; font-size: 0.9rem;">See Details</a>
+                <i class="fa-solid fa-graduation-cap" style="font-size:2rem; color:var(--primary); margin-bottom:10px;"></i>
+                <h3>IBM Data Science Capstone</h3>
+                <span class="card-tech">Data Science | Geolocation | Final Project</span>
+                <p>Final project for the IBM Data Science Professional Certificate, summarizing learned materials through a complex, real-world data challenge.</p>
+                <a href="https://github.com/mhmdsirajkhan/IBM-Applied-Data-Science-Capstone" class="btn" style="padding: 5px 10px; font-size: 0.9rem;">View Project</a>
             </div>
 
+             <div class="card" data-aos="flip-left" data-aos-delay="400">
+                <i class="fa-solid fa-user-group" style="font-size:2rem; color:var(--primary); margin-bottom:10px;"></i>
+                <h3>Customer Segmentation (KMeans)</h3>
+                <span class="card-tech">Python | Unsupervised Learning | Clustering</span>
+                <p>Applied KMeans clustering to customer data for market segmentation, helping to identify distinct user groups for targeted marketing strategies.</p>
+                <a href="https://github.com/mhmdsirajkhan/Customer_Segmentation_KMeans" class="btn" style="padding: 5px 10px; font-size: 0.9rem;">View Code</a>
+            </div>
+
+            <div class="card" data-aos="flip-left" data-aos-delay="500">
+                <i class="fa-solid fa-chart-area" style="font-size:2rem; color:var(--primary); margin-bottom:10px;"></i>
+                <h3>Sales Prediction/Forecasting</h3>
+                <span class="card-tech">Jupyter Notebook | Time Series Analysis</span>
+                <p>Focused on analyzing historical data to build models for sales forecasting, crucial for business planning and inventory management.</p>
+                <a href="https://github.com/mhmdsirajkhan/Sales_Prediction" class="btn" style="padding: 5px 10px; font-size: 0.9rem;">View Code</a>
+            </div>
+
+            <div class="card" data-aos="flip-left" data-aos-delay="600">
+                <i class="fa-solid fa-ship" style="font-size:2rem; color:var(--primary); margin-bottom:10px;"></i>
+                <h3>Titanic Survival Classifier</h3>
+                <span class="card-tech">Python | Classification | Exploratory Analysis</span>
+                <p>A classic machine learning project focused on predicting survival on the Titanic using classification algorithms and comprehensive data analysis.</p>
+                <a href="https://github.com/mhmdsirajkhan/Titanic-Survival-Classifier" class="btn" style="padding: 5px 10px; font-size: 0.9rem;">View Code</a>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="certifications">
+        <h2 class="section-title" data-aos="fade-up">Technical <span>Certifications</span></h2>
+        <div class="project-grid">
+            
+            <div class="card" data-aos="fade-up" data-aos-delay="50">
+                <i class="fa-solid fa-database" style="font-size:2rem; color:var(--primary); margin-bottom:10px;"></i>
+                <h3>Data Science & Analytics</h3>
+                <ul style="list-style: disc; margin-left: 20px; font-size: 0.95rem; color: var(--text-gray);">
+                    <li>IBM Data Science Professional Certificate</li>
+                    <li>Google Data Analytics Professional Certificate</li>
+                    <li>Python Programming – University of Michigan</li>
+                    <li>Python Essentials – Virtual University</li>
+                </ul>
+            </div>
+
+            <div class="card" data-aos="fade-up" data-aos-delay="150">
+                <i class="fa-solid fa-graduation-cap" style="font-size:2rem; color:var(--primary); margin-bottom:10px;"></i>
+                <h3>Research & Learning Innovation</h3>
+                <ul style="list-style: disc; margin-left: 20px; font-size: 0.95rem; color: var(--text-gray);">
+                    <li>Understanding Research Methods – University of London</li>
+                    <li>Statistical Analysis of Data for Researchers</li>
+                    <li>Designing Learning Innovation – Politecnico di Milano</li>
+                    <li>How to Write a Research Paper – University of Faisalabad</li>
+                </ul>
+            </div>
+
+            <div class="card" data-aos="fade-up" data-aos-delay="250">
+                <i class="fa-solid fa-laptop-code" style="font-size:2rem; color:var(--primary); margin-bottom:10px;"></i>
+                <h3>IT & Professional Productivity</h3>
+                <ul style="list-style: disc; margin-left: 20px; font-size: 0.95rem; color: var(--text-gray);">
+                    <li>Google IT Support Professional Certificate</li>
+                    <li>Microsoft 365 Fundamentals Specialization</li>
+                    <li>E-Learning Ecologies – University of Illinois</li>
+                </ul>
+            </div>
         </div>
     </section>
 
     <section id="contact">
         <h2 class="section-title" data-aos="zoom-in">Get In <span>Touch</span></h2>
         <div style="text-align: center;" data-aos="fade-up">
-            <p style="font-size: 1.2rem;">Based in Nawabshah, Pakistan. Open to collaboration.</p>
+            <p style="font-size: 1.2rem;">Based in Nawabshah, Pakistan. Open to collaboration and opportunities.</p>
             <div class="social-icons">
-                <a href="https://github.com/your-username"><i class="fab fa-github"></i></a>
-                <a href="https://linkedin.com/in/your-profile"><i class="fab fa-linkedin"></i></a>
-                <a href="mailto:your-email@gmail.com"><i class="fas fa-envelope"></i></a>
+                <a href="https://github.com/mhmdsirajkhan/" target="_blank" title="GitHub Profile"><i class="fab fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/siraj-khan-90b8a9262/" target="_blank" title="LinkedIn Profile"><i class="fab fa-linkedin"></i></a>
+                <a href="mailto:mohammadsiraj.original@gmail.com" title="Send Email"><i class="fas fa-envelope"></i></a>
             </div>
-            <a href="mailto:your-email@gmail.com" class="btn">Contact Me</a>
+            <a href="mailto:mohammadsiraj.original@gmail.com" class="btn">Contact Me Directly</a>
         </div>
     </section>
 
