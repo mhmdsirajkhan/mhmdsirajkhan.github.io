@@ -18,12 +18,13 @@
         :root {
             --primary: #00d2ff;
             --secondary: #3a7bd5;
-            --dark: #050a1a; /* Darker background for space effect */
+            --dark: #050a1a; /* Deep space background */
             --light: #f8fafc;
             --text-gray: #94a3b8;
             --glass-bg: rgba(255, 255, 255, 0.08); /* Frosted Glass Look */
             --glass-border: rgba(255, 255, 255, 0.15);
             --floating-shadow: 0 10px 40px rgba(0, 0, 0, 0.6); /* Shadow for 3D float */
+            --floating-card-shadow: 0 5px 15px rgba(0, 210, 255, 0.2); /* Subtle glow for cards */
         }
 
         body {
@@ -51,7 +52,7 @@
             width: 100%;
             height: 100%;
             z-index: -1;
-            background-color: var(--dark); /* Fallback to deep space color */
+            background-color: var(--dark);
         }
 
         /* --- 2. NAVIGATION (Glassmorphism & Button Style) --- */
@@ -122,17 +123,16 @@
         }
         .btn:hover { transform: translateY(-5px) scale(1.05); box-shadow: 0 5px 30px rgba(0, 210, 255, 0.6); }
 
-        /* --- 4. SECTIONS & ABOUT STYLING (The main sections are the floating elements) --- */
+        /* --- 4. SECTIONS & ABOUT STYLING (Floating elements) --- */
         section { 
             padding: 80px 10%; 
             position: relative; 
             z-index: 5;
-            /* Added margin to separate floating sections visually */
             margin-bottom: 50px; 
-            box-shadow: var(--floating-shadow); /* Floating effect for sections */
+            box-shadow: var(--floating-shadow);
             border-top: 1px solid var(--glass-border);
             border-bottom: 1px solid var(--glass-border);
-            background: rgba(0, 0, 0, 0.3); /* Darker, slightly opaque background for deep space contrast */
+            background: rgba(0, 0, 0, 0.3);
         }
         
         .section-title {
@@ -149,16 +149,16 @@
             flex-wrap: wrap;
         }
         
-        /* Frame/Card for About Text - already has glassmorphism */
+        /* Frame/Card for About Text - Enhanced 3D Glassmorphism */
         .about-frame-card {
             flex: 1; 
-            background: rgba(0, 0, 0, 0.2);
-            backdrop-filter: blur(5px);
-            -webkit-backdrop-filter: blur(5px);
+            background: rgba(0, 0, 0, 0.25); 
+            backdrop-filter: blur(6px);
+            -webkit-backdrop-filter: blur(6px);
             border-radius: 10px;
             border: 1px solid var(--glass-border);
             padding: 30px;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+            box-shadow: var(--floating-card-shadow); /* Glows against the background */
         }
         .about-text {
             line-height: 1.8; 
@@ -166,11 +166,11 @@
             color: var(--light);
         }
 
-        /* PHOTO STYLING - uses a sharp shadow to stand out */
+        /* PHOTO STYLING - FIXING CROPPING */
         .about-photo-container {
             flex-shrink: 0;
             width: 300px;
-            height: auto;
+            height: 400px; /* <--- FIXED HEIGHT ADDED HERE TO PREVENT CROPPING */
             border-radius: 10px;
             overflow: hidden;
             box-shadow: 0 0 30px rgba(0, 210, 255, 0.5); /* Blue glow around photo */
@@ -180,8 +180,15 @@
         .about-photo-container:hover {
             box-shadow: 0 0 40px var(--primary);
         }
+        .profile-photo {
+            width: 100%;
+            height: 100%; /* <--- HEIGHT SET TO 100% OF CONTAINER */
+            object-fit: cover; /* <--- ENSURES IMAGE FILLS THE BOX WITHOUT STRETCHING */
+            display: block;
+            transition: transform 0.3s;
+        }
         
-        /* Glass Cards for Projects/Certifications - already have smooth hover and glass look */
+        /* Glass Cards for Projects/Certifications */
         .project-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -198,19 +205,33 @@
             transition: all 0.4s ease-in-out;
             position: relative;
             overflow: hidden;
+            box-shadow: var(--floating-card-shadow); /* subtle glow */
         }
 
         .card:hover {
             transform: translateY(-10px) scale(1.02);
             background: rgba(255, 255, 255, 0.15);
             border-color: var(--primary);
-            box-shadow: 0 15px 35px rgba(0, 210, 255, 0.2);
+            box-shadow: 0 15px 35px rgba(0, 210, 255, 0.4); /* Stronger hover shadow */
         }
 
         .card h3 { color: var(--primary); margin-top: 0; }
         .card-tech { font-size: 0.9rem; color: var(--light); margin-bottom: 15px; display: block; }
 
         /* --- 5. CONTACT & FOOTER --- */
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 30px;
+        }
+        .social-icons a {
+            font-size: 2rem;
+            color: var(--light);
+            transition: all 0.3s;
+        }
+        .social-icons a:hover { color: var(--primary); transform: scale(1.3); }
+
         footer {
             text-align: center;
             padding: 20px;
@@ -219,7 +240,8 @@
             font-size: 0.9rem;
             position: relative;
             z-index: 5;
-            background: rgba(0, 0, 0, 0.3); /* Match section background */
+            background: rgba(0, 0, 0, 0.3);
+            box-shadow: var(--floating-shadow);
         }
 
         /* Mobile Responsive */
@@ -423,7 +445,7 @@
           points: 15.00, // Number of "stars" or nodes
           maxDistance: 25.00,
           spacing: 15.00,
-          showCircles: false // Keep it clean
+          showCircles: false 
         })
 
 
