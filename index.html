@@ -21,19 +21,19 @@
             --dark: #0f172a;
             --light: #f8fafc;
             --text-gray: #94a3b8;
+            --glass-bg: rgba(255, 255, 255, 0.08); /* Frosted Glass Look */
+            --glass-border: rgba(255, 255, 255, 0.15);
         }
 
         body {
-            /* Paragraphs and Body Text */
             font-family: 'Inter', sans-serif; 
             margin: 0;
             padding: 0;
-            background-color: var(--dark);
+            background-color: transparent; /* Must be transparent for full-page Vanta.js */
             color: var(--light);
             overflow-x: hidden;
         }
 
-        /* Headings use a different, bold font */
         h1, h2, h3 {
             font-family: 'Montserrat', sans-serif;
             font-weight: 700;
@@ -42,28 +42,58 @@
         a { text-decoration: none; color: inherit; transition: 0.3s; }
         ul { list-style: none; padding: 0; }
 
-        /* --- 2. NAVIGATION (Glassmorphism) --- */
+        /* --- Full Page Dynamic Background --- */
+        #vanta-bg {
+            position: fixed; /* Fixed to cover the entire page */
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background-color: var(--dark); /* Fallback */
+        }
+
+        /* --- 2. NAVIGATION (Glassmorphism & Button Style) --- */
         nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 20px 10%;
-            background: rgba(15, 23, 42, 0.8);
-            backdrop-filter: blur(10px);
+            padding: 15px 10%; 
+            /* Glassmorphism Effect */
+            background: var(--glass-bg); 
+            backdrop-filter: blur(10px); 
+            -webkit-backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--glass-border);
             position: fixed;
             width: 80%;
             top: 0;
             z-index: 1000;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
+            border-radius: 0 0 10px 10px;
         }
 
         .logo { font-size: 1.5rem; font-weight: 900; color: var(--primary); }
         
-        .nav-links li { display: inline-block; margin: 0 15px; }
-        .nav-links a { transition: color 0.3s; } 
-        .nav-links a:hover { color: var(--primary); text-shadow: 0 0 10px var(--primary); }
+        .nav-links li { 
+            display: inline-block; 
+            margin: 0 5px; 
+        }
+        .nav-links a { 
+            /* Button Styling */
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-weight: 600;
+            transition: all 0.3s;
+            background: rgba(255, 255, 255, 0.05); /* Subtly frosted button base */
+            border: 1px solid transparent;
+        }
+        .nav-links a:hover { 
+            color: var(--light); 
+            background: rgba(0, 210, 255, 0.2); /* Primary color glow */
+            border: 1px solid var(--primary);
+            box-shadow: 0 0 15px rgba(0, 210, 255, 0.5);
+        }
 
-        /* --- 3. HERO SECTION (Vanta BG) --- */
+        /* --- 3. HERO SECTION --- */
         .hero {
             height: 100vh;
             display: flex;
@@ -71,21 +101,10 @@
             justify-content: center;
             align-items: center;
             text-align: center;
-            /* Vanta.js will handle the background */
             position: relative;
             z-index: 10;
         }
         
-        /* Ensures Vanta BG covers the Hero section */
-        #vanta-bg {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-        }
-
         .hero h1 { font-size: 4rem; margin-bottom: 10px; font-weight: 900; }
         .hero h2 { font-size: 2rem; color: var(--primary); margin-bottom: 20px; font-weight: 700;}
         .hero p { color: var(--light); max-width: 600px; font-size: 1.1rem; }
@@ -104,7 +123,11 @@
         .btn:hover { transform: translateY(-5px) scale(1.05); box-shadow: 0 5px 30px rgba(0, 210, 255, 0.6); }
 
         /* --- 4. SECTIONS & ABOUT STYLING --- */
-        section { padding: 80px 10%; }
+        section { 
+            padding: 80px 10%; 
+            position: relative; 
+            z-index: 5;
+        }
         
         .section-title {
             text-align: center;
@@ -156,7 +179,7 @@
         }
         /* END PHOTO STYLING */
         
-        /* Glass Cards for Projects */
+        /* Glass Cards for Projects/Certifications */
         .project-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -164,10 +187,13 @@
         }
 
         .card {
-            background: rgba(255, 255, 255, 0.05);
+            /* Glassmorphism Card Styling */
+            background: var(--glass-bg);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
             padding: 30px;
             border-radius: 15px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            border: 1px solid var(--glass-border);
             transition: all 0.4s ease-in-out;
             position: relative;
             overflow: hidden;
@@ -175,13 +201,13 @@
 
         .card:hover {
             transform: translateY(-10px) scale(1.02);
-            background: rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.15); /* Brighter glass on hover */
             border-color: var(--primary);
             box-shadow: 0 15px 35px rgba(0, 210, 255, 0.2);
         }
 
         .card h3 { color: var(--primary); margin-top: 0; }
-        .card-tech { font-size: 0.9rem; color: var(--text-gray); margin-bottom: 15px; display: block; }
+        .card-tech { font-size: 0.9rem; color: var(--light); margin-bottom: 15px; display: block; }
 
         /* --- 5. CONTACT & FOOTER --- */
         .social-icons {
@@ -192,7 +218,7 @@
         }
         .social-icons a {
             font-size: 2rem;
-            color: var(--text-gray);
+            color: var(--light); /* Changed to light for better contrast on glass background */
             transition: all 0.3s;
         }
         .social-icons a:hover { color: var(--primary); transform: scale(1.3); }
@@ -201,8 +227,10 @@
             text-align: center;
             padding: 20px;
             border-top: 1px solid rgba(255,255,255,0.1);
-            color: var(--text-gray);
+            color: var(--light);
             font-size: 0.9rem;
+            position: relative;
+            z-index: 5;
         }
 
         /* Mobile Responsive */
@@ -216,6 +244,8 @@
 </head>
 <body>
 
+    <div id="vanta-bg"></div>
+
     <nav>
         <div class="logo">SIRAJ KHAN.</div>
         <ul class="nav-links">
@@ -228,7 +258,6 @@
     </nav>
 
     <section id="home" class="hero">
-        <div id="vanta-bg"></div> 
         
         <h1 data-aos="fade-down" data-aos-duration="1000">Hi, I'm <span style="color:var(--primary)">Siraj Khan</span></h1>
         
@@ -327,7 +356,7 @@
             <div class="card" data-aos="fade-up" data-aos-delay="50">
                 <i class="fa-solid fa-database" style="font-size:2rem; color:var(--primary); margin-bottom:10px;"></i>
                 <h3>Data Science & Analytics</h3>
-                <ul style="list-style: disc; margin-left: 20px; font-size: 0.95rem; color: var(--text-gray);">
+                <ul style="list-style: disc; margin-left: 20px; font-size: 0.95rem; color: var(--light);">
                     <li>IBM Data Science Professional Certificate</li>
                     <li>Google Data Analytics Professional Certificate</li>
                     <li>Python Programming – University of Michigan</li>
@@ -338,7 +367,7 @@
             <div class="card" data-aos="fade-up" data-aos-delay="150">
                 <i class="fa-solid fa-graduation-cap" style="font-size:2rem; color:var(--primary); margin-bottom:10px;"></i>
                 <h3>Research & Learning Innovation</h3>
-                <ul style="list-style: disc; margin-left: 20px; font-size: 0.95rem; color: var(--text-gray);">
+                <ul style="list-style: disc; margin-left: 20px; font-size: 0.95rem; color: var(--light);">
                     <li>Understanding Research Methods – University of London</li>
                     <li>Statistical Analysis of Data for Researchers</li>
                     <li>Designing Learning Innovation – Politecnico di Milano</li>
@@ -349,7 +378,7 @@
             <div class="card" data-aos="fade-up" data-aos-delay="250">
                 <i class="fa-solid fa-laptop-code" style="font-size:2rem; color:var(--primary); margin-bottom:10px;"></i>
                 <h3>IT & Professional Productivity</h3>
-                <ul style="list-style: disc; margin-left: 20px; font-size: 0.95rem; color: var(--text-gray);">
+                <ul style="list-style: disc; margin-left: 20px; font-size: 0.95rem; color: var(--light);">
                     <li>Google IT Support Professional Certificate</li>
                     <li>Microsoft 365 Fundamentals Specialization</li>
                     <li>E-Learning Ecologies – University of Illinois</li>
@@ -384,11 +413,11 @@
     <script>
         // Initialize Animations
         AOS.init({
-            duration: 1000,
+            duration: 900, // Slightly faster entry
             once: true,
         });
 
-        // Initialize Vanta.js dynamic background
+        // Initialize Vanta.js dynamic background (WAVES effect)
         VANTA.WAVES({
           el: "#vanta-bg",
           mouseControls: true,
@@ -397,7 +426,7 @@
           minWidth: 200.00,
           scale: 1.00,
           scaleMobile: 1.00,
-          color: 0x223344, // Darker color to match the theme
+          color: 0x223344, 
           shininess: 15.00,
           waveHeight: 10.00,
           waveSpeed: 0.50,
@@ -405,7 +434,7 @@
         })
 
 
-        // PERSONALIZED TYPEWRITER EFFECT
+        // PERSONALIZED TYPEWRITER EFFECT (Smoother)
         var typed = new Typed('.typing-text', {
             strings: [
                 'Data Science Enthusiast.', 
@@ -413,8 +442,8 @@
                 'Event Organizer.', 
                 'Researcher.'
             ],
-            typeSpeed: 100,
-            backSpeed: 60,
+            typeSpeed: 90, // Slightly faster typing
+            backSpeed: 50, // Slightly faster backspacing
             loop: true
         });
     </script>
