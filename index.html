@@ -95,7 +95,7 @@
         }
         .btn:hover { transform: translateY(-3px); box-shadow: 0 0 30px rgba(0, 210, 255, 0.6); }
 
-        /* --- 4. SECTIONS --- */
+        /* --- 4. SECTIONS & ABOUT STYLING --- */
         section { padding: 80px 10%; }
         
         .section-title {
@@ -112,6 +112,37 @@
             flex-wrap: wrap;
         }
         .about-text { flex: 1; line-height: 1.8; font-size: 1.1rem; color: var(--text-gray); }
+
+        /* NEW PHOTO STYLING */
+        .about-photo-container {
+            flex-shrink: 0;
+            width: 300px;
+            height: auto;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+            position: relative;
+        }
+        .profile-photo {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.3s;
+        }
+        .profile-photo:hover {
+            transform: scale(1.05);
+        }
+        .photo-caption {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            color: var(--light);
+            text-align: center;
+            padding: 10px 0;
+            font-size: 0.9rem;
+        }
+        /* END NEW PHOTO STYLING */
         
         /* Glass Cards for Projects */
         .project-grid {
@@ -160,10 +191,12 @@
             font-size: 0.9rem;
         }
 
+        /* Mobile Responsive */
         @media (max-width: 768px) {
             .hero h1 { font-size: 2.5rem; }
             .nav-links { display: none; }
             nav { justify-content: center; }
+            .about-photo-container { width: 100%; margin-bottom: 30px; }
         }
     </style>
 </head>
@@ -190,19 +223,26 @@
 
     <section id="about">
         <h2 class="section-title" data-aos="fade-up">About <span>Me</span></h2>
+        
         <div class="about-content">
+            <div class="about-photo-container" data-aos="zoom-in" data-aos-delay="50">
+                <img src="profile.jpg.png" alt="Siraj Khan Professional Photo" class="profile-photo">
+                <div class="photo-caption">B.Ed (Hons) Student at SBBU SBA</div>
+            </div>
+
             <div class="about-text" data-aos="fade-right">
+                <h3>My Background</h3>
                 <p>
-                    I am a <strong>B.Ed (Hons) student at SBBU SBA</strong> with a unique background in English Literature. 
-                    I am passionate about bridging the gap between education and technology.
+                    I am a <strong>B.Ed (Hons) student at SBBU SBA</strong> with a strong foundation in **English Literature**. 
+                    I am deeply passionate about bridging the gap between education and technology, striving to use 
+                    technical skills to solve real-world educational challenges.
                 </p>
                 <p>
-                    Currently, I am focused on <strong>Data Science (Python)</strong> and educational research. 
-                    I have experience building predictive models, developing with Flutter, and organizing 
-                    large-scale campus events like PUBG Mobile tournaments.
+                    My technical focus is on **Data Science (Python)**, Machine Learning, and Flutter development. 
+                    I have hands-on experience in building predictive models and organizing large-scale campus events.
                 </p>
                 <p>
-                    My goal is to pursue a Master's abroad in 2027, applying technical skills to solve real-world educational challenges.
+                    I am targeting a Master's degree abroad in 2027 and am currently seeking opportunities for technical collaboration.
                 </p>
             </div>
         </div>
@@ -213,24 +253,33 @@
         <div class="project-grid">
             
             <div class="card" data-aos="flip-left" data-aos-delay="100">
-                <i class="fa-solid fa-chart-line" style="font-size:2rem; color:var(--primary); margin-bottom:10px;"></i>
-                <h3>Sales & Price Prediction</h3>
-                <span class="card-tech">Python | Machine Learning</span>
-                <p>Developed ML models to predict car prices and advertising sales trends. Analyzed complex datasets to achieve high prediction accuracy.</p>
+                <i class="fa-solid fa-car" style="font-size:2rem; color:var(--primary); margin-bottom:10px;"></i>
+                <h3>Car Sales & Price Prediction</h3>
+                <span class="card-tech">Python | Scikit-learn | Data Analysis</span>
+                <p>
+                    Developed a regression model to predict the resale price and sales trends of used cars. Focused on feature engineering and model tuning to achieve high predictive accuracy.
+                </p>
+                <a href="#" class="btn" style="padding: 5px 10px; font-size: 0.9rem;">View Repository</a>
             </div>
 
             <div class="card" data-aos="flip-left" data-aos-delay="200">
-                <i class="fa-solid fa-trophy" style="font-size:2rem; color:var(--primary); margin-bottom:10px;"></i>
-                <h3>PUBG Campus Club</h3>
-                <span class="card-tech">Leadership | Event Organizing</span>
-                <p>Organized and managed the PUBG Mobile Campus Club tournament at SBBU SBA, handling promotion, player data, and logistics.</p>
+                <i class="fa-solid fa-rocket" style="font-size:2rem; color:var(--primary); margin-bottom:10px;"></i>
+                <h3>SpaceX & Titanic Explorations</h3>
+                <span class="card-tech">Python | Pandas | API Interaction</span>
+                <p>
+                    Executed advanced data manipulation and classification tasks using the Titanic and SpaceX datasets. Focused on API handling and survival rate prediction using logistic regression.
+                </p>
+                <a href="#" class="btn" style="padding: 5px 10px; font-size: 0.9rem;">View Notebook</a>
             </div>
 
             <div class="card" data-aos="flip-left" data-aos-delay="300">
-                <i class="fa-solid fa-code" style="font-size:2rem; color:var(--primary); margin-bottom:10px;"></i>
-                <h3>SpaceX & Titanic Data</h3>
-                <span class="card-tech">Data Science | APIs</span>
-                <p>Worked with the SpaceX API and Titanic datasets to classify survival rates and analyze mission success data using Python.</p>
+                <i class="fa-solid fa-users" style="font-size:2rem; color:var(--primary); margin-bottom:10px;"></i>
+                <h3>Campus Tournament Organization</h3>
+                <span class="card-tech">Event Management | Leadership | Logistics</span>
+                <p>
+                    Planned, promoted, and executed the PUBG Mobile Campus Club tournament at SBBU SBA. Managed player registration data, tournament brackets, and prize distribution for a large participant base.
+                </p>
+                <a href="#" class="btn" style="padding: 5px 10px; font-size: 0.9rem;">See Details</a>
             </div>
 
         </div>
